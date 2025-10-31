@@ -1,0 +1,24 @@
+{
+  "name": "restaurant-booking-system",
+  "version": "1.0.0",
+  "description": "Event-driven restaurant booking system with Kafka",
+  "main": "index.js",
+  "scripts": {
+    "api": "node api-service/index.js",
+    "booking": "node booking-service/index.js",
+    "dev:api": "nodemon api-service/index.js",
+    "dev:booking": "nodemon booking-service/index.js"
+  },
+  "keywords": ["kafka", "event-driven", "microservices", "booking"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "kafkajs": "^2.2.4",
+    "pg": "^8.11.3",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

@@ -1,0 +1,93 @@
+### Система бронирования столиков - Тестовые запросы
+### Используй REST Client extension в VS Code или Postman
+
+### 1. Health Check
+GET http://localhost:3000/health
+
+###
+
+### 2. Создать успешную бронь
+POST http://localhost:3000/bookings
+Content-Type: application/json
+
+{
+  "restaurant_id": "restaurant_1",
+  "booking_date": "2025-11-25",
+  "booking_time": "18:00:00",
+  "guest_count": 4
+}
+
+###
+
+### 3. Получить все брони
+GET http://localhost:3000/bookings
+
+###
+
+### 4. Получить конкретную бронь (замени на реальный ID)
+GET http://localhost:3000/bookings/550e8400-e29b-41d4-a716-446655440000
+
+###
+
+### 5. Создать вторую бронь на другое время (должна подтвердиться)
+POST http://localhost:3000/bookings
+Content-Type: application/json
+
+{
+  "restaurant_id": "restaurant_1",
+  "booking_date": "2025-11-25",
+  "booking_time": "19:00:00",
+  "guest_count": 2
+}
+
+###
+
+### 6. Попытаться забронировать занятое время (должна отклониться)
+POST http://localhost:3000/bookings
+Content-Type: application/json
+
+{
+  "restaurant_id": "restaurant_1",
+  "booking_date": "2025-11-25",
+  "booking_time": "18:00:00",
+  "guest_count": 3
+}
+
+###
+
+### 7. Бронь в другом ресторане на то же время (должна подтвердиться)
+POST http://localhost:3000/bookings
+Content-Type: application/json
+
+{
+  "restaurant_id": "restaurant_2",
+  "booking_date": "2025-11-25",
+  "booking_time": "18:00:00",
+  "guest_count": 6
+}
+
+###
+
+### 8. Невалидный запрос - отсутствует поле
+POST http://localhost:3000/bookings
+Content-Type: application/json
+
+{
+  "restaurant_id": "restaurant_1",
+  "booking_date": "2025-11-25"
+}
+
+###
+
+### 9. Невалидный запрос - некорректное количество гостей
+POST http://localhost:3000/bookings
+Content-Type: application/json
+
+{
+  "restaurant_id": "restaurant_1",
+  "booking_date": "2025-11-25",
+  "booking_time": "20:00:00",
+  "guest_count": 0
+}
+
+###
