@@ -2,7 +2,6 @@
 
 Event-driven система бронирования столиков с Kafka, PostgreSQL и Node.js.
 
-> **Все объяснения в комментариях к коду.** Открой `api-service/index.js` или `booking-service/index.js`.
 
 ## Архитектура
 
