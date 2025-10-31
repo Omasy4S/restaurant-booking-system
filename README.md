@@ -84,5 +84,3 @@ GET http://localhost:3000/bookings
 - Docker Compose (опционально)
 
 ---
-
-**Проект для портфолио** — event-driven архитектура с Kafka
